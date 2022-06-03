@@ -62,7 +62,6 @@ public class UIManager : MonoBehaviour
     {
         coinHolder.Play("CoinsToNumber");
         StartCoroutine(ScrambleNums());
-        //coins.DOText("350", 0.55f, false, ScrambleMode.Numerals, "231443478195436").OnComplete(()=>HideClaimBtn()); DT 
     }
 
     private IEnumerator ScrambleNums()
@@ -101,18 +100,14 @@ public class UIManager : MonoBehaviour
 
     public void RestartGameUI()
     {
-        //coins.text = "000";
         progressBar.fillAmount = 0;
         ShowHideEndGameUI(false);
-
-        GameManager.instance.boxAni.SetBool("Restart", true);
         GameManager.instance.trail.enabled = true;
-        GameManager.instance.boxAni.speed = GameManager.instance.cachecSpeed;
-        
-        //GameManager.instance.boxAni.Play("levelBox", 0 ,0);
-
-
+        GameManager.instance.boxAni.speed = GameManager.instance.autoStart ? GameManager.instance.cachecSpeed : 0;
+        GameManager.instance.boxAni.Play("levelBox", 0, 0);
     }
+
+    
 
     public void RestartState()
     {

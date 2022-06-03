@@ -41,8 +41,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //chestInitPos = chest.transform.position;
-        //chestInitRot = chest.transform.rotation;
         boxAni.speed = autoStart ? cachecSpeed : 0; 
     }
 
@@ -69,8 +67,6 @@ public class GameManager : MonoBehaviour
         trail.enabled = false;
         UIManager.instance.RestartGameUI();
         chest.SetInteger("openclose", 0);
-        //chest.transform.position = chestInitPos;
-        //chest.transform.rotation = chestInitRot;
         ResetPoles();
         outcome = outcome.undecided;
         cFollow.RestartFollow();
